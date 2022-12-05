@@ -1,0 +1,23 @@
+{
+  "name": "Cypress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Micromed teste",
+  "scripts": {
+    "prod": "./node_modules/.bin/cypress open --env configFile=prod",
+    "run:prod": "./node_modules/.bin/cypress run --env configFile=prod",
+    "test:ci": "npm run run:prod",
+    "test:ci:record": "npm run run:prod -- --record"
+  },
+  "devDependencies": {
+    "@types/faker": "^6.6.9",
+    "cypress": "^11.2.0",
+    "cypress-iframe": "^1.0.1",
+    "faker": "^5.5.3",
+    "typescript": "^4.9.3"
+  },
+  "author": "Sidimar Garcia Coelho",
+  "dependencies": {
+    "faker-br": "^0.4.1"
+  }
+}
