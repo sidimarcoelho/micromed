@@ -7,7 +7,6 @@ describe('Dado que necessito lista 5 story', () => {
     const date = new Date();
     const timestamp = date.getTime();
     let publicKey = String;
-    let privateKey = String;
     let hash = String;
 
 
@@ -19,7 +18,8 @@ describe('Dado que necessito lista 5 story', () => {
                 cy.log(`**timestamp:** ${JSON.stringify(timestamp)}`);
 
                 // publicKey = key.publickey;
-                privateKey = key.privatekey;
+                let privateKey = key.privatekey;
+
                 publicKey = Cypress.env('publickey');
 
                 cy.log(`**key.publickey:** ${JSON.stringify(publicKey)}`);
