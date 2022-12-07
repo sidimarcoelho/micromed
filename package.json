@@ -18,6 +18,7 @@
   },
   "author": "Sidimar Garcia Coelho",
   "dependencies": {
-    "faker-br": "^0.4.1"
+    "faker-br": "^0.4.1",
+    "md5": "^2.3.0"
   }
 }
