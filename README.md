@@ -59,7 +59,7 @@ Para executar o testes automatizados usaremos alguns comandos a partir da pasta 
 
 *	Para execução de todos os cenários implementados com o navegador chrome padrão utilizamos o seguinte código:
 ````bash
-npm run run-prod
+npm run run:prod
 ````
 *	Para execução de cenários específicos com o navegador chrome padrão utilizamos o seguinte código:
 ````bash

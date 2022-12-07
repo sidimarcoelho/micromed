@@ -18,12 +18,13 @@ describe('Dado que necessito lista 5 story', () => {
                 Login.login()
                 cy.log(`**timestamp:** ${JSON.stringify(timestamp)}`);
 
-                publicKey = key.publickey;
-                privateKey = key.privatekey;
-                // cy.log(`**hash:** ${JSON.stringify(publicKey)}`);
-                // cy.log(`**hash:** ${JSON.stringify(privateKey)}`);
-                // cy.log(`**hash:** ${JSON.stringify((timestamp + privateKey + publicKey))}`);
 
+                // publicKey = key.publickey;
+                // privateKey = key.privatekey;
+                publicKey = Cypress.env('publickey');
+                privateKey = Cypress.env('privatekey');
+                cy.log(`**key.publickey:** ${JSON.stringify(publicKey)}`);
+                cy.log(`**key.publickey:** ${JSON.stringify(privateKey)}`);
                 hash = md5(timestamp + privateKey + publicKey);
                 cy.log(`**hash:** ${JSON.stringify(hash)}`);
 
@@ -31,13 +32,11 @@ describe('Dado que necessito lista 5 story', () => {
 
         })
 
-
         it('Então ao preencher ', () => {
 
-
-            Story.Get(1, timestamp, publicKey, hash).should((response) => {
+            Story.Get(5, timestamp, publicKey, hash).should((response) => {
                 cy.log(`**Response body:** ${JSON.stringify(response)}`);
-                // expect(response.status, '**Status**').eq(200)
+                expect(response.status, '**Status**').eq(200)
 
 
             })
