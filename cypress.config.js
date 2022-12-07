@@ -5,10 +5,9 @@ module.exports = defineConfig({
   viewportWidth: 1280,
   viewportHeight: 800,
   projectId: "micromed",
-  responseTimeout: 10000,
+  responseTimeout: 100000,
   chromeWebSecurity: false,
   e2e: {
-    experimentalStudio: true,
     setupNodeEvents(on, config) {
       return require("./cypress/plugins/index.js")(on, config);
     },

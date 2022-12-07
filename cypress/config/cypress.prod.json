@@ -1,5 +1,7 @@
 {
   "env": {
-    "API": "https://gateway.marvel.com:443"
+    "API": "https://gateway.marvel.com:443",
+    "username": "sidima31310927",
+    "password": "sidimar123"
   }
 }

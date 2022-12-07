@@ -1,4 +1,5 @@
 import {Story} from "./story";
+import {Login} from "../login/login";
 
 const md5 = require('md5');
 
@@ -13,14 +14,15 @@ describe('Dado que necessito lista 5 story', () => {
     context('Quando executo um busca na API enviando o Offset com valo 5', () => {
 
         beforeEach(() => {
-            cy.fixture('apiKey').then((apiKey) => {
+            cy.fixture('keys').then((key) => {
+                Login.login()
                 cy.log(`**timestamp:** ${JSON.stringify(timestamp)}`);
 
-                publicKey = apiKey.publickey;
-                privateKey = apiKey.privatekey;
-                cy.log(`**hash:** ${JSON.stringify(publicKey)}`);
-                cy.log(`**hash:** ${JSON.stringify(privateKey)}`);
-                cy.log(`**hash:** ${JSON.stringify((timestamp + privateKey + publicKey))}`);
+                publicKey = key.publickey;
+                privateKey = key.privatekey;
+                // cy.log(`**hash:** ${JSON.stringify(publicKey)}`);
+                // cy.log(`**hash:** ${JSON.stringify(privateKey)}`);
+                // cy.log(`**hash:** ${JSON.stringify((timestamp + privateKey + publicKey))}`);
 
                 hash = md5(timestamp + privateKey + publicKey);
                 cy.log(`**hash:** ${JSON.stringify(hash)}`);
@@ -34,8 +36,8 @@ describe('Dado que necessito lista 5 story', () => {
 
 
             Story.Get(1, timestamp, publicKey, hash).should((response) => {
-                cy.log(`**Response body:** ${JSON.stringify(response.body)}`);
-                expect(response.status, '**Status**').eq(200)
+                cy.log(`**Response body:** ${JSON.stringify(response)}`);
+                // expect(response.status, '**Status**').eq(200)
 
 
             })
