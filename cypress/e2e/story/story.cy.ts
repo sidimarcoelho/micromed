@@ -18,11 +18,10 @@ describe('Dado que necessito lista 5 story', () => {
                 Login.login()
                 cy.log(`**timestamp:** ${JSON.stringify(timestamp)}`);
 
-
                 // publicKey = key.publickey;
-                // privateKey = key.privatekey;
+                privateKey = key.privatekey;
                 publicKey = Cypress.env('publickey');
-                privateKey = Cypress.env('privatekey');
+
                 cy.log(`**key.publickey:** ${JSON.stringify(publicKey)}`);
                 cy.log(`**key.publickey:** ${JSON.stringify(privateKey)}`);
                 hash = md5(timestamp + privateKey + publicKey);
