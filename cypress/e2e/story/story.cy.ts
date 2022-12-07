@@ -12,31 +12,48 @@ describe('Dado que necessito lista 5 story', () => {
 
     context('Quando executo um busca na API enviando o Offset com valo 5', () => {
 
-        beforeEach(() => {
+        before(() => {
             cy.fixture('keys').then((key) => {
-                Login.login()
-                cy.log(`**timestamp:** ${JSON.stringify(timestamp)}`);
-
+                // Login.login()
                 // publicKey = key.publickey;
                 let privateKey = key.privatekey;
 
                 publicKey = Cypress.env('publickey');
 
-                cy.log(`**key.publickey:** ${JSON.stringify(publicKey)}`);
-                cy.log(`**key.publickey:** ${JSON.stringify(privateKey)}`);
                 hash = md5(timestamp + privateKey + publicKey);
-                cy.log(`**hash:** ${JSON.stringify(hash)}`);
 
             })
 
         })
 
-        it('Então ao preencher ', () => {
+        it('Então deve retornar sucesso', () => {
 
             Story.Get(5, timestamp, publicKey, hash).should((response) => {
-                cy.log(`**Response body:** ${JSON.stringify(response)}`);
-                expect(response.status, '**Status**').eq(200)
+                expect(response.body.status, '**Code**').eq("Ok")
+                expect(response.body.code, '**Status**').eq(200)
 
+
+            })
+        })
+
+        it('Então deve retornar de 5 resultados', () => {
+
+            Story.Get(5, timestamp, publicKey, hash).should((response) => {
+                cy.log(`**Response body:** ${JSON.stringify(response.body.data)}`);
+                expect(response.body.data.limit, '**Limite**').eq(5)
+                expect(response.body.data.count, '**Count**').eq(5)
+                expect(response.body.data.results, '**Results**').to.length(5)
+
+            })
+        })
+
+        it('Então deve exibir no log o titulo de 5 story', () => {
+
+            Story.Get(5, timestamp, publicKey, hash).should((response) => {
+                for (let responseKey in response.body.data.results) {
+                    cy.log(`**title:** ${JSON.stringify(response.body.data.results[responseKey].title)}`);
+
+                }
 
             })
         })

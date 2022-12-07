@@ -85,6 +85,5 @@ TabNine
 | Id Dinamicos        | Utilizado seletores usando parte única do ID ( ^= )                             |
 | Id duplicado        | Utilizado seletor com mais atribubos para localizar elemento                    |
 | Campo data          | Não foi encontrado uma solução para preencher o campo id="InputDOB"             |
-| Autenticação        | Não descobri o motivo da falha, usei MD5 conforme documentação, mas sem sucesso |
 
 
