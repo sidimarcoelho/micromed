@@ -1,4 +1,5 @@
 import {Characters} from "./characters";
+import {Login} from "../login/login";
 
 const md5 = require('md5');
 
