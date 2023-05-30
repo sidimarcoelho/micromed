@@ -76,14 +76,6 @@ Entrar em Extensions ou Plugin da editor usado e buscar por:
 TabNine
 ````
 
----------
-<h2>Relatório do teste</h2>
 
-| Problema encontrado | Solução                                                                         |
-|:--------------------|---------------------------------------------------------------------------------|
-| Uso de iframa       | Utilizado dependencia para facilitar interação com iframes                      |
-| Id Dinamicos        | Utilizado seletores usando parte única do ID ( ^= )                             |
-| Id duplicado        | Utilizado seletor com mais atribubos para localizar elemento                    |
-| Campo data          | Não foi encontrado uma solução para preencher o campo id="InputDOB"             |
 
 
